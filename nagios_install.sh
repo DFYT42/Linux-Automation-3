@@ -33,3 +33,5 @@ chmod 666 /var/log/nagios/nagios.log
 
 #####RESTARTING NAGIOS TO BYPASS SE LINUX PREVENTIONS
 systemctl restart nagios
+
+
