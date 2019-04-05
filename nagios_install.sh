@@ -34,13 +34,21 @@ chmod 666 /var/log/nagios/nagios.log
 #####RESTARTING NAGIOS TO BYPASS SE LINUX PREVENTIONS
 systemctl restart nagios
 
-#####
-echo "define command{
-                                command_name check_nrpe
-                                command_line /usr/lib64/nagios/plugins/check_nrpe -H $HOSTADDRESS$ -c $ARG1$
-                                }" >> /etc/nagios/objects/commands.cfg
+# Need to put the NRPE changes into your config file
+echo "########### NRPE CONFIG LINE #######################
+        define command{
+        command_name check_nrpe
+        command_line $USER1$/check_nrpe -H $HOSTADDRESS$ -c $ARG1$
+}" >> /etc/nagios/servers/commands.cfg
 
+#####RESTARTING NAGIOS TO BYPASS SE LINUX PREVENTIONS
+systemctl restart nagios
+
+#######NEED TO BE DONE######
+####mkdir
+cd /etc/nagios/server
+mkdir /server
 ####need to add sed
-cfg_dir=/etc/nagios/servers (line 51) uncomment nagios.cfg
-">> /etc/nagios/conf.d/"$host".cfg changed to ">> /etc/nagios/servers/"$host".cfg
+##cfg_dir=/etc/nagios/servers (line 51) uncomment nagios.cfg
+##">> /etc/nagios/conf.d/"$host".cfg changed to ">> /etc/nagios/servers/"$host".cfg
 
