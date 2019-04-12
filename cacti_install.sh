@@ -48,7 +48,7 @@ sed -i 's/Allow from localhost/Allow from all all/' /etc/httpd/conf.d/cacti.conf
 
 # Modify cacti credencials to use user cacti P@ssw0rd1
 sed -i "s/\$database_username = 'cactiuser';/\$database_username = 'cacti';/" /etc/cacti/db.php
-sed -i "s/\$database_password = 'cactipass';/\$database_password = 'P@ssw0rd1';/" /etc/cacti/db.php
+sed -i "s/\$database_password = 'cactiuser';/\$database_password = 'P@ssw0rd1';/" /etc/cacti/db.php
 
 # Fix the php.ini script WITH TIMEZONE
 cp /etc/php.ini /etc/php.ini.orig
