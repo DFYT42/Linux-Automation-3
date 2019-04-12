@@ -38,7 +38,7 @@ mysql -u root  -pP@ssw0rd1 < stuff.sql    # Run your sql script
 
 #####SET VARIABLE FOR PATH SO IT UPDATES AUTOMATICALLY
 mypath=$(rpm -ql cacti|grep cacti.sql)
-mysql cacti < $mypath -u cacti -pP@ssw0rd1
+mysql cacti < $mypath -ucacti -pP@ssw0rd1
 ####WOULD'VE INPORTED NEW DATABSE INTO CACTI BUT ALREADY IMPORTED
 ##mysql -u cacti -p cacti < /usr/share/doc/cacti-1.0.4/cacti.sql
 
