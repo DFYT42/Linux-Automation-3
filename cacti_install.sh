@@ -1,11 +1,11 @@
 #!/bin/bash
 
-###installs packages
+###INSTALLS CACTI PACKAGES FOR NETWORK TRENDING INFORMATION
 yum -y install cacti
 #####OPEN SOURCE DATABASE VERSION OF ORACLE MYSQL
 yum -y install mariadb-server
-#####CACTI RUNS ON PHP
-#####INSTALLING DEPENDENCIES NEEDED FOR 
+#####CACTI RUNS ON PHP: INSTALLING DEPENDENCIES NEEDED
+#####THESE DEPENDENCIES MAY ALREDY BE INSTALLED
 yum -y install php-process php-gd php mod_php
 #####SIMPLE NETWORK MANAGEMENT PROTOCOL
 yum -y install net-snmp net-snmp-utils
