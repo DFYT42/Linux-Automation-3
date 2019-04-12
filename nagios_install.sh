@@ -51,4 +51,5 @@ mkdir /server
 ####need to add sed
 ##cfg_dir=/etc/nagios/servers (line 51) uncomment nagios.cfg
 ##">> /etc/nagios/conf.d/"$host".cfg changed to ">> /etc/nagios/servers/"$host".cfg
+##https://www.howtoforge.com/user_password_creating_with_a_bash_script
 
