@@ -48,8 +48,8 @@ systemctl restart nagios
 ####mkdir
 cd /etc/nagios/server
 mkdir /server
-####need to add sed
+sed '51i\ cfg_dir=/etc/nagios/server'
 ##cfg_dir=/etc/nagios/servers (line 51) uncomment nagios.cfg
 ##">> /etc/nagios/conf.d/"$host".cfg changed to ">> /etc/nagios/servers/"$host".cfg
-##https://www.howtoforge.com/user_password_creating_with_a_bash_script
+
 
