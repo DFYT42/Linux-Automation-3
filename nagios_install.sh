@@ -31,6 +31,9 @@ htpasswd -b -c ~/temp/password nagiosadmin nagiosadmin
 #####ENABLE rw/rw/rw FOR LOGS
 chmod 666 /var/log/nagios/nagios.log
 
+#####UNCOMMENT LINE TO ENABLE NAGIOS.CFG
+sed -i '51 s/^#//' /etc/nagios/nagios.cfg
+
 #####RESTARTING NAGIOS TO BYPASS SE LINUX PREVENTIONS
 systemctl restart nagios
 
@@ -49,7 +52,7 @@ systemctl restart nagios
 cd /etc/nagios/server
 mkdir /server
 sed '51i\ cfg_dir=/etc/nagios/server'
-##cfg_dir=/etc/nagios/servers (line 51) uncomment nagios.cfg
+
 ##">> /etc/nagios/conf.d/"$host".cfg changed to ">> /etc/nagios/servers/"$host".cfg
 
 
