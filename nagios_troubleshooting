@@ -2,6 +2,10 @@
 
 ##########TROUBLESHOOTING SERVER##########
 #/usr/lib64/nagios/plugins/check_nrpe -H 10.168.0.3 -c check_load
+###client
+#vim /etc/nagios/nrpe.cfg
 #sed #command[check_mem]=/usr/lib64/nagios/plugins/custom_check_mem -n $ARG1$,command[check_mem]=/usr/lib64/nagios/plugins/check_mem.sh -w 80 -c 90,g' /etc/nagios/nrpe.cfg 
 #####CONFIRM NAGIOS CONFIG
 #/usr/sbin/nagios -v /etc/nagios/nagios.cfg
+
+
