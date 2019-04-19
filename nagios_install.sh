@@ -42,7 +42,7 @@ echo "########### NRPE CONFIG LINE #######################
         define command{
         command_name check_nrpe
         command_line $USER1$/check_nrpe -H $HOSTADDRESS$ -c $ARG1$
-}" >> /etc/nagios/servers/commands.cfg
+}" >> /etc/nagios/objects/commands.cfg
 
 #####RESTARTING NAGIOS TO BYPASS SE LINUX PREVENTIONS
 systemctl restart nagios
