@@ -1,5 +1,34 @@
 #!/bin/bash
 ##########NOTES for NAGIOS WEB GUI SERVICES THAT ARE NOT GREEN##########
+#####HTTP#####
+
+##IF ERROR: (No output on stdout) stderr: Could not resolve hostname $: Name or service not known##
+##ON SERVER, most likely missing variables in last line that was echoed into cfg file during Nagios instal##
+vim /etc/nagios/objects/commands.cfg
+##CONFIRM LAST LINE HAST $HOSTADDRESS$ & $ARG1$
+echo "########### NRPE CONFIG LINE #######################
+        define command{
+        command_name check_nrpe
+        command_line $USER1$/check_nrpe -H $HOSTADDRESS$ -c $ARG1$
+}" >> /etc/nagios/objects/commands.cfg
+
+##IF ERROR: FORBIDDEN##
+##ON SERVER: the file /etc/httpd/conf.d/welcome.conf tells Nagios to look for an index with user information##
+##if that index does not exist, it forbids Nagios from accessing the client http for monitoring##
+##need to create and execute an empty file for Nagios to fetch##
+##https://stackoverflow.com/questions/23673549/nagios-http-warning-http-1-1-403-forbidden##
+touch /var/www/html/index.html
+chmod 755 /var/www/html/index.html
+
+##IF ERROR: SWAP USAGE CRITICAL##
+##ON SERVER: need to enable SWAP memory##
+##https://rafishaikblog.wordpress.com/2017/08/14/nagios-plugins-functionality/##
+dd if=/dev/zero of=/swap bs=1024 count=2097152
+mkswap /swap && chown root. /swap && chmod 0600 /swap && swapon /swap
+echo /swap swap swap defaults 0 0 >> /etc/fstab
+echo vm.swappiness = 0 >> /etc/sysctl.conf && sysctl -p
+
+
 
 ##########TROUBLESHOOTING SERVER##########
 ###CONFIRM NAGIOS CONFIG on SERVER###
@@ -21,7 +50,7 @@ sed -i 's|#command[check_disk]=/usr/lib64/nagios/plugins/check_disk $ARG1$|comma
 sed -i 's|#command[check_swap]=/usr/lib64/nagios/plugins/check_swap $ARG1$|command[check_swap]=/usr/lib64/nagios/plugins/check_swap -w 20% -c 10%|g' /etc/nagios/nrpe.cfg
 sed -i 's|#command[check_cpu_stats]=/usr/lib64/nagios/plugins/check_cpu_stats.sh $ARG1$|command[check_cpu_stats]=/usr/lib64/nagios/plugins/check_cpu_stats.sh -w 70,40,30 -c 90,50,40|g' /etc/nagios.nrpe.cfg
 
-##https://rafishaikblog.wordpress.com/2017/08/14/nagios-plugins-functionality/
+
 
 ##########SED STATEMENT CHEATSHEET##########
 :  # label
