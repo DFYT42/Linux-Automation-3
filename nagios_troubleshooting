@@ -1,0 +1,4 @@
+#!/bin/bash
+
+#####TROUBLESHOOTING
+#/usr/lib64/nagios/plugins/check_nrpe -H 10.168.0.3 -c check_load
