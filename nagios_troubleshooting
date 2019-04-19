@@ -4,6 +4,7 @@
 
 ##IF ERROR: (No output on stdout) stderr: Could not resolve hostname $: Name or service not known##
 ##ON SERVER, most likely missing variables in last line that was echoed into cfg file during Nagios instal##
+##https://support.nagios.com/forum/viewtopic.php?f=7&t=33850##
 vim /etc/nagios/objects/commands.cfg
 ##CONFIRM LAST LINE HAST $HOSTADDRESS$ & $ARG1$
 echo "########### NRPE CONFIG LINE #######################
