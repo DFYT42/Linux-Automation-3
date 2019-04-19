@@ -9,4 +9,6 @@
 #####CONFIRM NAGIOS CONFIG
 #/usr/sbin/nagios -v /etc/nagios/nagios.cfg
 
+##https://rafishaikblog.wordpress.com/2017/08/14/nagios-plugins-functionality/
+
 
