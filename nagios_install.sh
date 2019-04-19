@@ -26,6 +26,7 @@ yum -y install nagios-plugins-all
 yum -y install nagios-plugins-nrpe
 
 #####ENABLE SWAP#####
+#####https://www.digitalocean.com/community/tutorials/how-to-install-nagios-on-centos-6
 dd if=/dev/zero of=/swap bs=1024 count=2097152
 mkswap /swap && chown root. /swap && chmod 0600 /swap && swapon /swap
 echo /swap swap swap defaults 0 0 >> /etc/fstab
