@@ -1,4 +1,6 @@
 #!/bin/bash
 
-#####TROUBLESHOOTING
+##########TROUBLESHOOTING SERVER##########
 #/usr/lib64/nagios/plugins/check_nrpe -H 10.168.0.3 -c check_load
+#####CONFIRM NAGIOS CONFIG
+#/usr/sbin/nagios -v /etc/nagios/nagios.cfg
