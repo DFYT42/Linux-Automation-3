@@ -17,6 +17,7 @@ chmod +x /usr/lib64/nagios/plugins/check_mem.sh
 systemctl enable nrpe
 systemctl start nrpe
 ###There's another line over in troubleshooting to pull over here###
+#sed #command[check_mem]=/usr/lib64/nagios/plugins/custom_check_mem -n $ARG1$,command[check_mem]=/usr/lib64/nagios/plugins/check_mem.sh -w 80 -c 90,g' /etc/nagios/nrpe.cfg 
 ### MISC SYSTEM METRICS ###
 #command[check_users]=/usr/lib64/nagios/plugins/check_users $ARG1$
 #command[check_load]=/usr/lib64/nagios/plugins/check_load $ARG1$
