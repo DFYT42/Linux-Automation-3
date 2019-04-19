@@ -43,6 +43,9 @@ echo "########### NRPE CONFIG LINE #######################
         command_name check_nrpe
         command_line $USER1$/check_nrpe -H $HOSTADDRESS$ -c $ARG1$
 }" >> /etc/nagios/objects/commands.cfg
+#####CREATING EMPTY FILE FOR NAGIOS TO FETCH THAT IT IS NOT FORBIDDEN FROM#####
+touch /var/www/html/index.html
+chmod 755 /var/www/html/index.html
 
 #####RESTARTING NAGIOS TO BYPASS SE LINUX PREVENTIONS
 systemctl restart nagios
