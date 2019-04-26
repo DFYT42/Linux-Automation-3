@@ -13,6 +13,9 @@ echo "########### NRPE CONFIG LINE #######################
         command_line $USER1$/check_nrpe -H $HOSTADDRESS$ -c $ARG1$
 }" >> /etc/nagios/objects/commands.cfg
 
+#####UNCOMMENT LINE TO ENABLE NAGIOS.CFG
+sed -i '51 s/^#//' /etc/nagios/nagios.cfg
+
 ##IF ERROR: FORBIDDEN##
 ##ON SERVER: the file /etc/httpd/conf.d/welcome.conf tells Nagios to look for an index with user information##
 ##if that index does not exist, it forbids Nagios from accessing the client http for monitoring##
