@@ -10,6 +10,7 @@ yum install -y nagios-nrpe-server nagios-plugins nrpe nagios-plugins-load nagios
 # add in command[check_mem]=/usr/lib64/nagios/plugins/check_mem.sh
 # Install custom mem monitor
 #####INSTALL MEMORY MONITOR#####
+###Need to point to my github
 wget -O /usr/lib64/nagios/plugins/check_mem.sh https://raw.githubusercontent.com/nic-instruction/NTI-320/master/nagios/check_mem.sh
 #####EXECUTE MEMORY MONITOR#####
 chmod +x /usr/lib64/nagios/plugins/check_mem.sh
