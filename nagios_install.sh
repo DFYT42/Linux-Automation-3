@@ -59,7 +59,7 @@ systemctl restart nagios
 
 #######Making Servers File for configuration######
 ####mkdir
-mkdir /servers
+mkdir /etc/nagios/servers
 sed '51i\ cfg_dir=/etc/nagios/servers'
 
 ####Need to add user to nagios group so secure copy to nagios works
