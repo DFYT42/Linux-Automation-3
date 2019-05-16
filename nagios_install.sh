@@ -57,11 +57,18 @@ chmod 755 /var/www/html/index.html
 #####RESTARTING NAGIOS TO BYPASS SE LINUX PREVENTIONS
 systemctl restart nagios
 
-#######NEED TO BE DONE######
+#######Making ######
 ####mkdir
 cd /etc/nagios/server
 mkdir /server
 sed '51i\ cfg_dir=/etc/nagios/server'
+
+####Need to add user to nagios group so secure copy to nagios works
+usermod -a -G nagios g42dfyt
+
+####elevate /etc/nagios/servers
+chmod 777 /etc/nagios/servers
+
 
 ##">> /etc/nagios/conf.d/"$host".cfg changed to ">> /etc/nagios/servers/"$host".cfg
 
