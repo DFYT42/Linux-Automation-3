@@ -45,11 +45,11 @@ sed -i '51 s/^#//' /etc/nagios/nagios.cfg
 systemctl restart nagios
 
 # Need to put the NRPE changes into your config file
-echo "########### NRPE CONFIG LINE #######################
+echo '########### NRPE CONFIG LINE #######################
         define command{
         command_name check_nrpe
         command_line $USER1$/check_nrpe -H $HOSTADDRESS$ -c $ARG1$
-}" >> /etc/nagios/objects/commands.cfg
+}' >> /etc/nagios/objects/commands.cfg
 #####CREATING EMPTY FILE FOR NAGIOS TO FETCH THAT IT IS NOT FORBIDDEN FROM#####
 touch /var/www/html/index.html
 chmod 755 /var/www/html/index.html
