@@ -11,7 +11,7 @@ yum install -y nagios-nrpe-server nagios-plugins nrpe nagios-plugins-load nagios
 # Install custom mem monitor
 #####INSTALL MEMORY MONITOR#####
 ###Need to point to my github
-wget -O /usr/lib64/nagios/plugins/check_mem.sh https://raw.githubusercontent.com/nic-instruction/NTI-320/master/nagios/check_mem.sh
+wget -O /usr/lib64/nagios/plugins/check_mem.sh https://raw.githubusercontent.com/DFYT42/Linux-Automation-3/master/nagios_check_mem.sh
 #####EXECUTE MEMORY MONITOR#####
 chmod +x /usr/lib64/nagios/plugins/check_mem.sh
 
@@ -41,6 +41,6 @@ sed -i 's|#command\[check_swap\]=/usr/lib64/nagios/plugins/check_swap \$ARG1\$|c
 sed -i 's|#command\[check_cpu_stats\]=/usr/lib64/nagios/plugins/check_cpu_stats.sh \$ARG1\$|command\[check_cpu_stats\]=/usr/lib64/nagios/plugins/check_cpu_stats.sh -w 70,40,30 -c 90,50,40|g' /etc/nagios.nrpe.cfg
 
 
-sed -i 's/allowed_hosts=127.0.0.1/allowed_hosts=127.0.0.1, 10.168.0.2/g' /etc/nagios/nrpe.cfg
+sed -i 's/allowed_hosts=127.0.0.1/allowed_hosts=127.0.0.1, 10.168.15.196/g' /etc/nagios/nrpe.cfg
 
 systemctl restart nrpe
