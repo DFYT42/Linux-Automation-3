@@ -32,26 +32,36 @@ make %{?_smp_mflags}
 cp /root/rpmbuild/SOURCES/helloworld.sh /root/rpmbuild/BUILD/helloworld-0.1/
 
 %install
+##clears root directory
 rm -rf %{buildroot}
+##mk directories
 mkdir -p %{buildroot}/%{_bindir}
 mkdir -p %{buildroot}/%{_sysconfdir}/profile.d
 
+
 make install DESTDIR=%{buildroot}
 install -m 0755 %{name} %{buildroot}/%{_bindir}/%{name}
+##copy helloword script into profile
 cp /root/rpmbuild/SOURCES/helloworld.sh %{buildroot}/%{_sysconfdir}/profile.d/
 %clean
 
 %files					
-%defattr(-,root,root)	
+%defattr(-,root,root)
+##name listed above of rpm
 /usr/bin/%{name}
 
 %config
 /etc/profile.d/%{name}.sh	
 
+##docs for running program
+##go in man section
 %doc			
 
 %post
-
+##postscripts
+##run after install
+##rpms can run whatever they want
+##troubleshooting good place to start
 touch /thisworked
 
 
