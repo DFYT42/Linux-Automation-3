@@ -1,0 +1,6 @@
+Needed for final:
+GoogleCloudCLI:
+gcloud compute scp g42dfyt@build-a:/home/g42dfyt/helloworld-0.1-1.el7.x86_64.r
+pm .
+gcloud compute scp helloworld-0.1-1.el7.x86_64.rpm g42dfyt@repo-serv:/home/g42
+dfyt
