@@ -7,7 +7,7 @@
 versionp=$(python --version) 
 versionp3=$(python3 --version)
 
-if [ $versionp3 != "bash: python3: command not found" && $versionp != "bash: python: command not found" ]; then
+if [ "$versionp3" != "bash: python3: command not found" && "$versionp" != "bash: python: command not found" ]; then
     echo "Overachiever! You have both Python3 and Python installed"
     exit 0;
     
