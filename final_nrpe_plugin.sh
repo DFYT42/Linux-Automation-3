@@ -14,7 +14,8 @@ if [ "$versionp" -gt 1 ]; then
 
   elif [ $versionp -lt 1 ]; then
     echo "You do not have Python installed"
-    apt-get -y install python
+    yum -y install python
+    #apt-get -y install python
     exit 2;
 
   elif [ $versionp = 1 ]; then
