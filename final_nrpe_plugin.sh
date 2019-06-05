@@ -4,20 +4,16 @@
 # plugins we write
 #http://tldp.org/LDP/abs/html/comparison-ops.html
 
-versionp=$(python --version) 
-versionp3=$(python3 --version)
+versionp=$(ls -l | grep python | wc -l)
 
-if [ "$versionp3" != "bash: python3: command not found" && "$versionp" != "bash: python: command not found" ]; then
-    echo "Overachiever! You have both Python3 and Python installed"
+if [ "$versionp" -gt 0]; then
+    echo "You have Python installed"
     exit 0;
     
-  elif [ $versionp3 == "bash: python3: command not found" && $versionp == "bash: python: command not found" ]; then
-    echo "You do not have Python3 or Python installed"
+  elif [ $versionp -e 0]; then
+    echo "You do not have Python installed"
+    yum install python
     exit 2;
-    
-  elif [ $versionp3 == "bash: python3: command not found" && $versionp != "bash: python: command not found" ] ; then
-    echo "You do not have Python3 installed but do have Python installed"
-    exit 1;
     
 else
    echo "VERSION:UNKNOWN"
