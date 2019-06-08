@@ -3,7 +3,7 @@
 #add to existing repos (ls /etc/yum.repos.d)
 
 ##repo server ip
-ip="10.138.0.4"                                                    # Please replace with your repo server IP
+ip="10.138.0.200"                                                    # Please replace with your repo server IP
 
 #vim /etc/yum.repos.d/epel.repo
 echo "[nti-320]
