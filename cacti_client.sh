@@ -11,6 +11,7 @@ touch /etc/snmp/snmpd.conf
 
 
 # edit snmpd.conf file /etc/snmp/snmpd.conf
+# for the 10.138.x.x to worl...instance has to be in us-west1-b
 echo '# create myuser in mygroup authenticating with 'public' community string and source network 10.138.0.0/24
 com2sec myUser 10.138.0.0/24 public
 # myUser is added into the group 'myGroup' and the permission of the group is defined
