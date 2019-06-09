@@ -19,36 +19,43 @@ systemctl start mariadb           # Start db, apache and snmp (not cacti yet)
 systemctl start httpd
 systemctl start snmpd
 
-mysqladmin -u root password P@ssw0rd1                               # Set your mysql/mariadb pasword.  here *** is your password
-                                                                    # Make a sql script to create a cacti db and grant the cacti user access to it
+#####SET MYSQL-MARIADB PASSWD#####
+db_password="P@ssw0rd1"
+cacti_password="P@ssw0rd1"
 
-mysql_tzinfo_to_sql /usr/share/zoneinfo | mysql -u root -pP@ssw0rd1 mysql    # Transfer your local timezone info to mysql
+##### Make a sql script to create a cacti db and grant the cacti user access to it
+mysqladmin -u root password $db_password
+
+#####SET TIMEZONE#####
+# Transfer your local timezone info to mysql
+mysql_tzinfo_to_sql /usr/share/zoneinfo | mysql -u root -p$db_password mysql    
 
 #####create cacti user and grant alll
 echo "create database cacti;
-GRANT ALL ON cacti.* TO cacti@localhost IDENTIFIED BY 'P@ssw0rd1';  # Set this to somthing better than 'cactipass'
+GRANT ALL ON cacti.* TO cacti@localhost IDENTIFIED BY '$cacti_password';  # Set this to somthing better than 'cactipass'
 FLUSH privileges;
+
 GRANT SELECT ON mysql.time_zone_name TO cacti@localhost;            # Added to fix a timezone issue
 flush privileges;" > stuff.sql
 
-
-mysql -u root  -pP@ssw0rd1 < stuff.sql    # Run your sql script
+#####RUN SQL SCRIPT#####
+mysql -p"$db_password" -u root < stuff.sql   
 ##rpm -ql cacti|grep cacti.sql     # Will list the location of the package cacti sql script
                                  # In this case, the output is /usr/share/doc/cacti-1.0.4/cacti.sql, run that to populate your db
 
 #####SET VARIABLE FOR PATH SO IT UPDATES AUTOMATICALLY
 mypath=$(rpm -ql cacti|grep cacti.sql)
-mysql cacti < $mypath -ucacti -pP@ssw0rd1
+mysql cacti < $mypath -u cacti -p"$cacti_password"
 ####WOULD'VE INPORTED NEW DATABSE INTO CACTI BUT ALREADY IMPORTED
 ##mysql -u cacti -p cacti < /usr/share/doc/cacti-1.0.4/cacti.sql
+
+# Modify cacti credencials to use user cacti P@ssw0rd1
+sed -i.bak "s,\$database_username = 'cactiuser',\$database_username = 'cacti',g" /etc/cacti/db.php
+sed -i "s,\$database_password = 'cactiuser',\$database_password = '$cacti_password',g" /etc/cacti/db.php
 
 # Open up AND CONFIGURE apache
 sed -i 's/Require host localhost/Require all granted/' /etc/httpd/conf.d/cacti.conf
 sed -i 's/Allow from localhost/Allow from all all/' /etc/httpd/conf.d/cacti.conf
-
-# Modify cacti credencials to use user cacti P@ssw0rd1
-sed -i "s/\$database_username = 'cactiuser';/\$database_username = 'cacti';/" /etc/cacti/db.php
-sed -i "s/\$database_password = 'cactiuser';/\$database_password = 'P@ssw0rd1';/" /etc/cacti/db.php
 
 # Fix the php.ini script WITH TIMEZONE
 cp /etc/php.ini /etc/php.ini.orig
