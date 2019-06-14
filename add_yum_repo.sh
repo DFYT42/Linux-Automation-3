@@ -16,12 +16,12 @@ gpgcheck=0
 ' >> /etc/yum.repos.d/NTI-320.repo                                  
                                                                     # Now that the repo is added, list all repos and make sure
                                                                     # it shows up without error
-yum repolist
+#yum repolist
 
-isokay=`yum search "hello world" | grep "Matched: hello world"`
+#isokay=`yum search "hello world" | grep "Matched: hello world"`
 
-if [ -z "$isokay" ]; then
-   echo "There's somthing wrong with your repo... check yum repolist to see if it shows up then try installing a package"
-else
-   echo "All is well and we found your test package: $isokay"   
-fi
+#if [ -z "$isokay" ]; then
+#   echo "There's somthing wrong with your repo... check yum repolist to see if it shows up then try installing a package"
+#else
+#   echo "All is well and we found your test package: $isokay"   
+#fi
