@@ -9,7 +9,7 @@ echo '%_topdir %(echo $HOME)/rpmbuild' > ~/.rpmmacros                         # 
 cd ~/rpmbuild/SOURCES
 ###Not needed but to better automate what is needed
 git clone https://github.com/nic-instruction/custom-nrpe-2019.git
-cd custom-nrpe-2019/
+
 cp custom-nrpe-2019/nti-320-plugins-0.1.tar.gz .
 cp custom-nrpe-2019/plugins/nrpe_plugin_python_version.sh .
 cp custom-nrpe-2019/nti-320-plugins.spec .
