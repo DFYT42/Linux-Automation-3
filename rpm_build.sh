@@ -8,21 +8,21 @@ cd ~/
 echo '%_topdir %(echo $HOME)/rpmbuild' > ~/.rpmmacros                         # Set the rpmbuild path in an .rpmmacros file
 cd ~/rpmbuild/SOURCES
 ###Not needed but to better automate what is needed
-git clone https://github.com/nic-instruction/NTI-320.git
-cd NTI-320/
-cp NTI-320/rpm-info/hello_world_from_source/helloworld-0.1.tar.gz .
-cp NTI-320/rpm-info/hello_world_from_source/helloworld.sh .
-cp NTI-320/rpm-info/hello_world_from_source/hello.spec .
+git clone https://github.com/nic-instruction/custom-nrpe-2019.git
+cd custom-nrpe-2019/
+cp custom-nrpe-2019/nti-320-plugins-0.1.tar.gz .
+cp custom-nrpe-2019/nrpe_plugin_python_version.sh .
+cp custom-nrpe-2019/nti-320-plugins.spec .
 mv hello.spec ../SPECS
 cd ..
 ##builds rpm
 ##want to exit with 0
-rpmbuild -v -bb --clean SPECS/hello.spec
+rpmbuild -v -bb --clean SPECS/nti-320-plugins.spec
 
 ##did it work?
 #ls -l RPMS/x86_64/helloworld-0.1-1.el7.x86_64.rpm
 
-yum -y install RPMS/x86_64/helloworld-0.1-1.el7.x86_64.rpm
+yum -y install RPMS/x86_64/nti-320-plugins-0.1-1.el7.x86_64.rpm
 
 ##did it work?
 #ls -l /
