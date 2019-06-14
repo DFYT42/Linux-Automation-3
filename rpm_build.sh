@@ -44,3 +44,7 @@ yum -y install RPMS/x86_64/nti-320-plugins-0.1-1.el7.x86_64.rpm
 
 #cd ../SPECS                                                                   # head to the SPECS directory
 #cp /usr/share/vim/vimfiles/template.spec .                                    # copy a template .spec file over from /usr/share
+
+#cp /root/rpmbuild/RPMS/x86_64/nti-320-plugins-0.1-1.el7.x86_64.rpm /home/g42dfyt/
+#gcloud compute scp g42dfyt@nti320-final-build-server:/home/g42dfyt/nti-320-plugins-0.1-1.el7.x86-64.rpm .
+#gcloud compute scp nti-320-plugins-0.1-1.el7.x86_64.rpm g42dfyt@nti320-final-repo-server:/home/g42dfyt
