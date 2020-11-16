@@ -1,5 +1,5 @@
 # Linux-Automation-3
-Networking and Application Monitoring and Trending
+<b>Linux Networking Automation, Application Monitoring, and Trending</b>
 
 * Using Google Cloud Platform, automate spinning up and monitoring a network using bootstrap script
 * Network includes:
