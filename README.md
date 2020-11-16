@@ -8,16 +8,20 @@ Using Google Cloud Platform, automate for spinning up and monitoring a network u
 <ul></ul>
 
 Network includes:
+<ul class="roman">
    <li>Django Server for secure website</li>
    <li>Nagios for monitoring server status with:
    <ul class="square">
       <li>NRPE</li>
       <li>Clients installed on all network servers</li>
-   </ul></li>
+   </ul>
+   </li>
    <li>Cacti for graphical UI monitoring of network</li>
    <ul class="square">
       <li>Clients installed on all network servers</li>
    </ul>
+   </li>
+</ul>
 <ul></ul>
 
 Techniques and Tools include:
