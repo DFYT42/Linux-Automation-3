@@ -2,25 +2,25 @@
 <b>NTI_320</b>
 <ui></ui>
 <b>Linux Networking Automation, Application Monitoring, and Trending</b>
-
-* Using Google Cloud Platform, automate spinning up and monitoring a network using bootstrap script
-* Network includes:
-   * Django Server for secure website
-   * Nagios for monitoring server status with:
-     * NRPE
-     * Clients installed on all network servers
-   * Cacti for graphical UI monitoring of network
-     * Clients installed on all network servers
-* Techniques and Tools include:
-  * Bash
-  * Python
-  * AWK
-  * SED
-  * Git 
-  * RPMBuild
-  * Secure copy
-  * Configuartion generation
-  * For loops
+<ui></ui>
+<li>Using Google Cloud Platform, automate for spinning up and monitoring a network using bootstrap script</li>
+<li>Network includes:</li>
+   <li>Django Server for secure website</li>
+   <li>Nagios for monitoring server status with:</li>
+     <li>NRPE</li>
+     <li>Clients installed on all network servers</li>
+   <li>Cacti for graphical UI monitoring of network</li>
+     <li>Clients installed on all network servers</li>
+<li>Techniques and Tools include:</li>
+  <li>Bash</li>
+  <li>Python</li>
+  <li>AWK</li>
+  <li>SED</li>
+  <li>Git</li>
+  <li>RPMBuild</li>
+  <li>Secure copy</li>
+  <li>Configuartion generation</li>
+  <li>For loops</li>
   
 
 
