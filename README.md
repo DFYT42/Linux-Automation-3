@@ -2,8 +2,9 @@
 <b>NTI_320</b>
 <ui></ui>
 <b>Linux Networking Automation, Application Monitoring, and Trending</b>
-<ui>
-<li>Using Google Cloud Platform, automate for spinning up and monitoring a network using bootstrap script</li>
+<ui></ui>
+Using Google Cloud Platform, automate for spinning up and monitoring a network using bootstrap script
+<ui></ui>
 <li>Network includes:</li>
    <li>Django Server for secure website</li>
    <li>Nagios for monitoring server status with:</li>
@@ -21,6 +22,6 @@
    <li>Secure copy</li>
    <li>Configuartion generation</li>
    <li>For loops</li>
-</ui>
+
 
 
