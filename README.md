@@ -7,7 +7,7 @@
 Using Google Cloud Platform, automate for spinning up and monitoring a network using bootstrap script
 <ul></ul>
 
-Network includes:
+<b>Network includes:</b>
 <ul class="roman">
    <li>Django Server for secure website</li>
    <li>Nagios for monitoring server status with:
@@ -22,9 +22,10 @@ Network includes:
    </ul>
    </li>
 </ul>
-<ul></ul>
 
-Techniques and Tools include:
+
+<b>Techniques and Tools include:</b>
+<ul class="roman">
    <li>Bash</li>
    <li>Python</li>
    <li>AWK</li>
@@ -34,6 +35,7 @@ Techniques and Tools include:
    <li>Secure copy</li>
    <li>Configuartion generation</li>
    <li>For loops</li>
+<ul>
 
 
 
