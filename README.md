@@ -2,6 +2,7 @@
 <b>NTI_320</b>
 <ui></ui>
 <b>Linux Networking Automation, Application Monitoring, and Trending</b>
+
 <ui></ui>
 Using Google Cloud Platform, automate for spinning up and monitoring a network using bootstrap script
 <ui></ui>
